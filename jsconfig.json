@@ -28,6 +28,12 @@
             ],
             "@hooks/*": [
                 "hooks/*"
+            ],
+            "@common/*": [
+                "common/*"
+            ],
+            "@layout/*": [
+                "layout/*"
             ]
         }
     }
