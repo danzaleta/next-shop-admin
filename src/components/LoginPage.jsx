@@ -4,17 +4,14 @@ import { LockClosedIcon } from '@heroicons/react/solid';
 export default function LoginPage() {
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
-
-    const submitHandler = (event)=>{
+    const submitHandler = (event) => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-
         console.log(`
         email: ${email}
         password: ${password}`);
     }
-
 
     return (
         <>
@@ -58,7 +55,6 @@ export default function LoginPage() {
                                 />
                             </div>
                         </div>
-
                         <div className="flex items-center justify-between">
                             <div className="flex items-center">
                                 <input id="remember-me" name="remember-me" type="checkbox" className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" />
@@ -66,14 +62,12 @@ export default function LoginPage() {
                                     Remember me
                                 </label>
                             </div>
-
                             <div className="text-sm">
                                 <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
                                     Forgot your password?
                                 </a>
                             </div>
                         </div>
-
                         <div>
                             <button
                                 type="submit"
