@@ -14,8 +14,12 @@ export default function LoginPage() {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
-        auth.signIn(email, password).then(()=>{
+        auth.signIn(email, password)
+        .then(()=>{
             console.log('Logged!');
+        })
+        .catch((error)=>{
+            alert(error);
         });
 
         console.log(`
