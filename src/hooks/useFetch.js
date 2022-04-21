@@ -11,7 +11,7 @@ const useFetch = (endPoint) => {
 
     useEffect(() => {
         try {
-            fetchData();1
+            fetchData();1;
         } catch (error) {
             alert(error);
         }

@@ -16,12 +16,12 @@ export default function LoginPage() {
 
         auth.signIn(email, password)
         .then(()=>{
-            console.log('Logged!');
             router.push('/dashboard');
+            //console.log('Logged!');
         })
         .catch((error)=>{
             alert(error);
-            console.log('ERROR');
+            //console.log('ERROR');
         });
     }
 

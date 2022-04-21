@@ -1,26 +1,35 @@
-const people = [
-    {
-        name: 'Jane Cooper',
-        title: 'Regional Paradigm Technician',
-        department: 'Optimization',
-        role: 'Admin',
-        email: 'jane.cooper@example.com',
-        image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
-    },
-];
-
 import useFetch from "@hooks/useFetch";
 import endPoints from "@services/api";
+import { Chart } from "@common/Chart";
 
 export default function Dashboard() {
-    const PRODUCT_LIMIT = 5;
-    const PRODUCT_OFFSET = 5;
+    const PRODUCT_LIMIT = 15;
+    const PRODUCT_OFFSET = 15;
 
     const products = useFetch(endPoints.products.getProducts(PRODUCT_LIMIT, PRODUCT_OFFSET));
+    const categoryNames = products?.map((product) => product.category);
+    const categoryCount = categoryNames?.map((category) => category.name);
+    const countOcurrences = (arr)=> arr.reduce((acc, curr)=>((acc[curr] = ++acc[curr] || 1), acc),{});
+
     console.log(products);
+    console.log(categoryNames);
+    console.log(categoryCount);
+    console.log(countOcurrences(categoryCount));
+
+    const data = {
+        datasets: [
+            {
+                label: 'Categories',
+                data: countOcurrences(categoryCount),
+                borderWidth: 2,
+                backgroundColor: ['#9dbc11', '#2ccbbb', '#f08bab', '#f3ba2f', '#9f88f9']
+            },
+        ],
+    }
 
     return (
         <>
+            <Chart className="mb-8 mt-2" chartData={data} />
             <div className="flex flex-col">
                 <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
