@@ -3,23 +3,40 @@ import { addProduct } from '@services/api/products';
 
 const product = {};
 
-export default function FormProduct() {
+export default function FormProduct({ setOpen, setAlert }) {
     const formRef = useRef(null);
 
     const handleSubmit = (event) => {
         event.preventDefault();
         const formData = new FormData(formRef.current);
         const data = {
-            "title": formData.get('title'),
-            "price": parseInt(formData.get('price')),
-            "description": formData.get('description'),
-            "categoryId": parseInt(formData.get('category')),
-            "images": [formData.get('images').name],
+            title: formData.get('title'),
+            price: parseInt(formData.get('price')),
+            description: formData.get('description'),
+            categoryId: parseInt(formData.get('category')),
+            images: [formData.get('images').name],
         };
         addProduct(data)
             .then((response) => {
+                setAlert({
+                    active: true,
+                    message: "Product added succesfully!",
+                    type: "success",
+                    autoClose: true,
+                });
+                setOpen(false);
                 console.log(response);
-            });
+            })
+            .catch((err) => { 
+                setAlert({
+                    active: true,
+                    message: err.message,
+                    type: "error",
+                    autoClose: false,
+                });
+                setOpen(false);
+                console.log(err);
+            })
     };
 
     return (
