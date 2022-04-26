@@ -1,6 +1,7 @@
 import { useState, Fragment } from 'react';
 import { PlusCircleIcon } from '@heroicons/react/solid';
 import Modal from '@common/Modal';
+import FormProduct from '@components/FormProduct';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ');
@@ -100,7 +101,7 @@ const products = () => {
                 </div>
             </div>
             <Modal open={open} setOpen={setOpen}>
-                <h1>Open modal</h1>
+                <FormProduct/>
             </Modal>
         </>
     );
