@@ -62,7 +62,6 @@ const Products = () => {
                         </button>
                     </span>
 
-
                 </div>
             </div>
 

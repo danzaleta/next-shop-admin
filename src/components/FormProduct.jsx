@@ -1,9 +1,9 @@
 import { useRef } from 'react';
 import { addProduct } from '@services/api/products';
 
-const product = {};
+//const product = {};
 
-export default function FormProduct({ setOpen, setAlert }) {
+export default function FormProduct({ setOpen, setAlert, product}) {
     const formRef = useRef(null);
 
     const handleSubmit = (event) => {
