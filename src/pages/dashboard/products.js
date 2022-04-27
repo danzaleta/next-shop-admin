@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { PlusCircleIcon, XCircleIcon } from '@heroicons/react/solid';
 import Modal from '@common/Modal';
 import FormProduct from '@components/FormProduct';
@@ -23,7 +24,7 @@ const Products = () => {
                     autoClose: true,
                 });
             })
-            .catch((err)=>{
+            .catch((err) => {
                 console.log(err);
             })
     };
@@ -115,8 +116,9 @@ const Products = () => {
                                             </td>
 
                                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                <Link href={`edit/${product.id}`} className="text-indigo-600 hover:text-indigo-900">
                                                 Edit
-                                                <a href="#" className="text-indigo-600 hover:text-indigo-900"></a>
+                                                </Link>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                 <XCircleIcon className='flex-shrink-0 h-6 w-6 text-gray-400 cursor-pointer'

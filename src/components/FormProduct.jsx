@@ -1,10 +1,10 @@
 import { useRef } from 'react';
-import { addProduct } from '@services/api/products';
+import { addProduct, updateProduct } from '@services/api/products';
+import { useRouter } from 'next/router';
 
-//const product = {};
-
-export default function FormProduct({ setOpen, setAlert, product}) {
+export default function FormProduct({ setOpen, setAlert, product }) {
     const formRef = useRef(null);
+    const router = useRouter();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -16,27 +16,41 @@ export default function FormProduct({ setOpen, setAlert, product}) {
             categoryId: parseInt(formData.get('category')),
             images: [formData.get('images').name],
         };
-        addProduct(data)
-            .then((response) => {
-                setAlert({
-                    active: true,
-                    message: "Product added succesfully!",
-                    type: "success",
-                    autoClose: true,
-                });
-                setOpen(false);
-                console.log(response);
-            })
-            .catch((err) => { 
-                setAlert({
-                    active: true,
-                    message: err.message,
-                    type: "error",
-                    autoClose: false,
-                });
-                setOpen(false);
-                console.log(err);
-            })
+
+        if (product) {
+            updateProduct(product.id, data)
+                .then((response) => {
+                    console.log(response)
+                })
+                .catch((err) => {
+                    alert(err);
+                    console.log(err);
+                })
+        }
+        else {
+            addProduct(data)
+                .then((response) => {
+                    setAlert({
+                        active: true,
+                        message: "Product added succesfully!",
+                        type: "success",
+                        autoClose: true,
+                    });
+                    setOpen(false);
+                    console.log(response);
+                })
+                .catch((err) => {
+                    setAlert({
+                        active: true,
+                        message: err.message,
+                        type: "error",
+                        autoClose: false,
+                    });
+                    setOpen(false);
+                    console.log(err);
+                })
+        }
+        router.push('/dashboard/products');
     };
 
     return (
