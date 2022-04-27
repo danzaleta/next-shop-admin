@@ -3,6 +3,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import useFetch from '@hooks/useFetch';
 import endPoints from '@services/api';
 import { Chart } from '@common/Chart';
+import Link from 'next/link';
 
 export default function Dashboard() {
     const PRODUCT_LIMIT = 100;
@@ -43,7 +44,7 @@ export default function Dashboard() {
                     <button
                         onClick={() => {
                             if (pageIdx > 0) {
-                                clickHandler(pageIdx - 1)
+                                clickHandler(pageIdx - 1);
                             }
                         }}
                         className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
@@ -53,7 +54,7 @@ export default function Dashboard() {
                     <button
                         onClick={() => {
                             if (pageIdx < 9) {
-                                clickHandler(pageIdx + 1)
+                                clickHandler(pageIdx + 1);
                             }
                         }}
                         className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
@@ -72,7 +73,7 @@ export default function Dashboard() {
                             <button
                                 onClick={() => {
                                     if (pageIdx > 0) {
-                                        clickHandler(pageIdx - 1)
+                                        clickHandler(pageIdx - 1);
                                     }
                                 }}
                                 className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
@@ -109,7 +110,7 @@ export default function Dashboard() {
                             <button
                                 onClick={() => {
                                     if (pageIdx < 9) {
-                                        clickHandler(pageIdx + 1)
+                                        clickHandler(pageIdx + 1);
                                     }
                                 }}
                                 className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
@@ -172,12 +173,14 @@ export default function Dashboard() {
                                             </td>
 
                                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                Edit
-                                                <a href="#" className="text-indigo-600 hover:text-indigo-900"></a>
+                                                <Link href="#" className="text-indigo-600 hover:text-indigo-900">
+                                                    Edit
+                                                </Link>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                Delete
-                                                <a href="#" className="text-indigo-600 hover:text-indigo-900"></a>
+                                                <Link href="#" className="text-indigo-600 hover:text-indigo-900">
+                                                    Delete
+                                                </Link>
                                             </td>
                                         </tr>
                                     ))}
@@ -193,7 +196,7 @@ export default function Dashboard() {
                     <button
                         onClick={() => {
                             if (pageIdx > 0) {
-                                clickHandler(pageIdx - 1)
+                                clickHandler(pageIdx - 1);
                             }
                         }}
                         className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
@@ -203,7 +206,7 @@ export default function Dashboard() {
                     <button
                         onClick={() => {
                             if (pageIdx < 9) {
-                                clickHandler(pageIdx + 1)
+                                clickHandler(pageIdx + 1);
                             }
                         }}
                         className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
@@ -222,7 +225,7 @@ export default function Dashboard() {
                             <button
                                 onClick={() => {
                                     if (pageIdx > 0) {
-                                        clickHandler(pageIdx - 1)
+                                        clickHandler(pageIdx - 1);
                                     }
                                 }}
                                 className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
@@ -259,7 +262,7 @@ export default function Dashboard() {
                             <button
                                 onClick={() => {
                                     if (pageIdx < 9) {
-                                        clickHandler(pageIdx + 1)
+                                        clickHandler(pageIdx + 1);
                                     }
                                 }}
                                 className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"

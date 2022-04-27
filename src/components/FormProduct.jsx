@@ -20,20 +20,19 @@ export default function FormProduct({ setOpen, setAlert, product }) {
         if (product) {
             updateProduct(product.id, data)
                 .then((response) => {
-                    console.log(response)
+                    console.log(response);
                 })
                 .catch((err) => {
                     alert(err);
                     console.log(err);
-                })
-        }
-        else {
+                });
+        } else {
             addProduct(data)
                 .then((response) => {
                     setAlert({
                         active: true,
-                        message: "Product added succesfully!",
-                        type: "success",
+                        message: 'Product added succesfully!',
+                        type: 'success',
                         autoClose: true,
                     });
                     setOpen(false);
@@ -43,13 +42,13 @@ export default function FormProduct({ setOpen, setAlert, product }) {
                     setAlert({
                         active: true,
                         message: err.message,
-                        type: "error",
+                        type: 'error',
                         autoClose: false,
                     });
                     setOpen(false);
                     console.log(err);
-                })
-        }
+                });
+        };
         router.push('/dashboard/products');
     };
 
@@ -154,5 +153,5 @@ export default function FormProduct({ setOpen, setAlert, product }) {
                 </div>
             </div>
         </form>
-    )
-}
+    );
+};

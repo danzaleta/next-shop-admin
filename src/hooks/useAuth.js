@@ -41,7 +41,7 @@ function useProvideAuth() {
         setUser(null);
         delete axios.defaults.headers.Authorization;
         window.location.href = '/login';
-    }
+    };
 
     return {
         user,

@@ -26,7 +26,7 @@ const Products = () => {
             })
             .catch((err) => {
                 console.log(err);
-            })
+            });
     };
 
     useEffect(() => {
@@ -40,7 +40,7 @@ const Products = () => {
             console.log(error);
         }
 
-    }, [alert])
+    }, [alert]);
 
     return (
         <>
@@ -123,7 +123,7 @@ const Products = () => {
                                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                 <XCircleIcon className='flex-shrink-0 h-6 w-6 text-gray-400 cursor-pointer'
                                                     aria-hidden="true"
-                                                    onClick={() => { handleDelete(product.id) }} />
+                                                    onClick={() => { handleDelete(product.id); }} />
                                             </td>
                                         </tr>
                                     ))}

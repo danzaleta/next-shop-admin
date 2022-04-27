@@ -16,5 +16,6 @@ module.exports = {
     rules: {
         'semi': ['error', 'always'],
         'prettier/prettier': 0,
+        "jsx-a11y/label-has-associated-control": "off",
     }
 }

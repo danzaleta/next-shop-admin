@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { useRouter } from 'next/router';
 import { LockClosedIcon } from '@heroicons/react/solid';
 import { useAuth } from '@hooks/useAuth';
+import Link from 'next/link';
 
 export default function LoginPage() {
     const emailRef = useRef(null);
@@ -14,16 +15,17 @@ export default function LoginPage() {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
-        auth.signIn(email, password)
-        .then(()=>{
-            router.push('/dashboard');
-            //console.log('Logged!');
-        })
-        .catch((error)=>{
-            alert(error);
-            //console.log('ERROR');
-        });
-    }
+        auth
+            .signIn(email, password)
+            .then(() => {
+                router.push('/dashboard');
+                //console.log('Logged!');
+            })
+            .catch((error) => {
+                alert(error);
+                //console.log('ERROR');
+            });
+    };
 
     return (
         <>
@@ -75,9 +77,9 @@ export default function LoginPage() {
                                 </label>
                             </div>
                             <div className="text-sm">
-                                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                                <Link href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
                                     Forgot your password?
-                                </a>
+                                </Link>
                             </div>
                         </div>
                         <div>
@@ -96,4 +98,4 @@ export default function LoginPage() {
             </div>
         </>
     );
-}
+};
